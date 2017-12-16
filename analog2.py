@@ -5,7 +5,6 @@ formato = "%b %d %H:%M:%S"
 fecha = []
 dic = {}
 valores = []
-contador = 0
 fichero_origen = open('auth.log', 'r')
 for linea in fichero_origen.readlines():
 	if 'authentication failure' in linea:
