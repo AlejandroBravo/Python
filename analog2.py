@@ -4,7 +4,7 @@ from datetime import datetime
 formato = "%b %d %H:%M:%S"
 fecha = []
 dic = {}
-prueba = []
+valores = []
 fichero_origen = open('auth.log', 'r')
 for linea in fichero_origen.readlines():
 	if 'authentication failure' in linea:
@@ -13,7 +13,7 @@ for linea in fichero_origen.readlines():
 		ip=spl[13]
 		clave=ip[6:]
 		if clave in linea:
-			prueba.append(linea[0:15]+',')
+			valores.append(linea[0:15]+',')
 			dic[clave]=prueba
 				
 		
