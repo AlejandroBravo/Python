@@ -14,7 +14,7 @@ for linea in fichero_origen.readlines():
 		clave = ip[6:]
 		valores.append(linea[0:15])
 		valores.reverse()
-		for x in range(len(linea)):
+		if ip not in dic:
 			dic[clave]= []
 		for ele in valores:
 			if ele in linea and clave in linea:
