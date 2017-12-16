@@ -4,7 +4,7 @@ from datetime import datetime
 formato = "%b %d %H:%M:%S"
 fecha = []
 dic = {}
-contador = 0
+prueba = []
 fichero_origen = open('auth.log', 'r')
 for linea in fichero_origen.readlines():
 	if 'authentication failure' in linea:
@@ -12,12 +12,13 @@ for linea in fichero_origen.readlines():
 		spl=linea.split()
 		ip=spl[13]
 		clave=ip[6:]
-		dic[clave]=linea[0:15]
-		
-#		if dic.has_key(clave):
-#			dic[clave] += ','+linea[0:15]
+		if clave in linea:
+			prueba.append(linea[0:15]+',')
+			dic[clave]=prueba
 				
 		
 fichero_origen.close
-print fecha
+for dia in fecha:
+	print datetime.strftime(dia, '%m %d %H:%M:%S')
 
+print dic
