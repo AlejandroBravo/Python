@@ -12,9 +12,8 @@ for linea in fichero_origen.readlines():
 		spl=linea.split()
 		ip=spl[13]
 		clave=ip[6:]
-		if clave in linea:
-			valores.append(linea[0:15]+',')
-			dic[clave]=prueba
+		dic[clave]=linea[0:15]+','
+
 				
 		
 fichero_origen.close
