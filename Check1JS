@@ -1,0 +1,28 @@
+function checkio(cad) {
+	var li = [];
+	var dic = {};
+	var mayor = 0;
+	for car in cad {
+		if car.isalpha {
+			li.push(car.toLowerCase())
+			};
+		};
+	console.log(cad);
+	console.log(li);
+	for letra in li {
+		var frecuencia=li.lenght(letra);
+		if frecuencia > mayor {
+			mayor = frecuencia
+			};
+		if frecuencia not in dic {
+			dic[frecuencia]=letra
+			};
+		else {
+			if dic[frecuencia] > letra{
+				dic[frecuencia]=letra
+			};
+			};
+		};
+		console.log(dic);
+	return dic[mayor];
+};
