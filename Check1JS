@@ -12,14 +12,14 @@ function checkio(cad) {
 	for letra in li {
 		var frecuencia=li.lenght(letra);
 		if frecuencia > mayor {
-			mayor = frecuencia
+			var mayor = frecuencia
 			};
 		if frecuencia not in dic {
-			dic[frecuencia]=letra
+			var dic[frecuencia]=letra
 			};
 		else {
 			if dic[frecuencia] > letra{
-				dic[frecuencia]=letra
+				var dic[frecuencia]=letra
 			};
 			};
 		};
