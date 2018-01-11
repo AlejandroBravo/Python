@@ -10,6 +10,10 @@ def ana():
 	f = open ('auth.log', 'r')
 	ha={}
 	ataques=[]
+	menor = datetime.strptime(fecha1,'%b %d %H:%M:%S')
+	#print menor
+	mayor = datetime.strptime(fecha2,'%b %d %H:%M:%S')
+	#print mayor
 	for lin in f.readlines():
 		if 'authentication failure' in lin:
 			li=lin.split()
@@ -17,6 +21,7 @@ def ana():
 			sfe = li[0]+li[1]+li[2]
 			#print sfe
 			fe = datetime.strptime(sfe,'%b%d%H:%M:%S')
+			#print fe
 			for ele in li:
 				if 'rhost' in ele:
 					ip = ele[6:]
@@ -24,9 +29,10 @@ def ana():
 			if ip not in ha:
 				ha[ip]=[]
 			ha[ip].append(fe)
-			if lin[0-14] >= fecha1 and <= fecha2:
-				if ip in lin:
-					
+
+			if lin[0:14] >= fecha1 and lin [0-14] <= fecha2:
+				ataques = ip
+			print ataques
 				
 						
 	f.close()
@@ -38,3 +44,7 @@ dic = ana()
 
 
 
+			#menor = datetime.strptime(fecha1,'%b %d %H:%M:%S')
+			#print menor
+			#mayor = datetime.strptime(fecha2,'%b %d %H:%M:%S')
+			#print mayor
