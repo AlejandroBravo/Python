@@ -24,7 +24,10 @@ def ana():
 			if ip not in ha:
 				ha[ip]=[]
 			ha[ip].append(fe)
-			
+			if lin[0-14] >= fecha1 and <= fecha2:
+				if ip in lin:
+					
+				
 						
 	f.close()
 	for ip in ha:
