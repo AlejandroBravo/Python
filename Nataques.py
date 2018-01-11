@@ -15,12 +15,8 @@ def ana():
 	for lin in f.readlines():
 		if 'authentication failure' in lin:
 			li=lin.split()
-			#print li
 			sfe = li[0]+li[1]+li[2]
-			#print sfe
 			fe = datetime.strptime(sfe,'%b%d%H:%M:%S')
-			#print fe
-			#print type(fe)
 			for ele in li:
 				if 'rhost' in ele:
 					ip = ele[6:]
@@ -28,10 +24,10 @@ def ana():
 			if ip not in ha:
 				ha[ip]=[]
 			ha[ip].append(fe)
-
 			if fe >= menor and fe <= mayor:
-				ataques = lin
-			print ataques
+				ataques.append(ip)
+	print ataques
+
 				
 						
 	f.close()
