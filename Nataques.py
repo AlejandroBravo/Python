@@ -4,16 +4,14 @@ from datetime import datetime
 
 numero=3
 fecha1='Nov 24 05:45:22'
-fecha2='Nov 24 08:42:00'
+fecha2='Nov 24 16:28:14'
 
 def ana():
 	f = open ('auth.log', 'r')
 	ha={}
 	ataques=[]
 	menor = datetime.strptime(fecha1,'%b %d %H:%M:%S')
-	#print menor
 	mayor = datetime.strptime(fecha2,'%b %d %H:%M:%S')
-	#print mayor
 	for lin in f.readlines():
 		if 'authentication failure' in lin:
 			li=lin.split()
@@ -22,6 +20,7 @@ def ana():
 			#print sfe
 			fe = datetime.strptime(sfe,'%b%d%H:%M:%S')
 			#print fe
+			#print type(fe)
 			for ele in li:
 				if 'rhost' in ele:
 					ip = ele[6:]
@@ -30,8 +29,8 @@ def ana():
 				ha[ip]=[]
 			ha[ip].append(fe)
 
-			if lin[0:14] >= fecha1 and lin [0-14] <= fecha2:
-				ataques = ip
+			if fe >= menor and fe <= mayor:
+				ataques = lin
 			print ataques
 				
 						
@@ -40,11 +39,3 @@ def ana():
 		ha[ip].sort(reverse=True)
 	return ha
 dic = ana()
-
-
-
-
-			#menor = datetime.strptime(fecha1,'%b %d %H:%M:%S')
-			#print menor
-			#mayor = datetime.strptime(fecha2,'%b %d %H:%M:%S')
-			#print mayor
