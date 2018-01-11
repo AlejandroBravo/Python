@@ -2,9 +2,10 @@
 #-*- coding: utf-8 -*-
 from datetime import datetime
 
-numero=3
+numero=6
 fecha1='Nov 24 05:45:22'
 fecha2='Nov 24 16:28:14'
+pregunta ='120.132.176.19'
 
 def ana():
 	f = open ('auth.log', 'r')
@@ -26,10 +27,13 @@ def ana():
 			ha[ip].append(fe)
 			if fe >= menor and fe <= mayor:
 				ataques.append(ip)
-	print ataques
-
-				
-						
+			resultados = ataques.count(pregunta)
+			if resultados >= numero:
+				final = pregunta
+			else:
+				final = 'No se han encontrado tantos ataques'
+	
+	print final						
 	f.close()
 	for ip in ha:
 		ha[ip].sort(reverse=True)
