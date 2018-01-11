@@ -2,10 +2,10 @@
 #-*- coding: utf-8 -*-
 from datetime import datetime
 
-numero=6
+numero=3
 fecha1='Nov 24 05:45:22'
 fecha2='Nov 24 16:28:14'
-pregunta ='120.132.176.19'
+pregunta ='122.225.18.142'
 
 def ana():
 	f = open ('auth.log', 'r')
@@ -21,7 +21,6 @@ def ana():
 			for ele in li:
 				if 'rhost' in ele:
 					ip = ele[6:]
-					#print ip
 			if ip not in ha:
 				ha[ip]=[]
 			ha[ip].append(fe)
@@ -31,7 +30,7 @@ def ana():
 			if resultados >= numero:
 				final = pregunta
 			else:
-				final = 'No se han encontrado tantos ataques'
+				final = 'No se han encontrado tantos ataques.'
 	
 	print final						
 	f.close()
