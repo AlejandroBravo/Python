@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 from datetime import datetime
 
-numero=3
+numero=1
 fecha1='Nov 24 05:45:22'
 fecha2='Nov 24 16:28:14'
 pregunta ='122.225.18.142'
@@ -10,7 +10,9 @@ pregunta ='122.225.18.142'
 def ana():
 	f = open ('auth.log', 'r')
 	ha={}
+	dic={}
 	ataques=[]
+	final=[]
 	menor = datetime.strptime(fecha1,'%b %d %H:%M:%S')
 	mayor = datetime.strptime(fecha2,'%b %d %H:%M:%S')
 	for lin in f.readlines():
@@ -26,13 +28,16 @@ def ana():
 			ha[ip].append(fe)
 			if fe >= menor and fe <= mayor:
 				ataques.append(ip)
-			resultados = ataques.count(pregunta)
-			if resultados >= numero:
-				final = pregunta
-			else:
-				final = 'No se han encontrado tantos ataques.'
-	
-	print final						
+			for ele in ataques:
+				dic[ele]=ataques.count(ele)
+			for ele in dic:
+				if dic[ele] >= numero:
+					print dic[ele]
+					final.append(dic[ele])
+
+	print dic
+	print final
+	print ataques					
 	f.close()
 	for ip in ha:
 		ha[ip].sort(reverse=True)
