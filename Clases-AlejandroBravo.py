@@ -20,6 +20,7 @@ class Coche:
 			self.gasolina -= 1
 			print 'Quedan', self.gasolina, 'litros'
 		else:
+			self.estado = 'Parado'
 			print 'No se mueve'
 			
 
